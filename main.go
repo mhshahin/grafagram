@@ -49,13 +49,12 @@ type Message struct {
 }
 
 type TelegramPayload struct {
-	RuleName   string `json:"ruleName,omitempty"`
-	State      string `json:"state,omitempty"`
-	Message    string `json:"message,omitempty"`
-	RuleURL    string `json:"ruleUrl,omitempty"`
-	HasRuleURL bool
-	ImageURL   string `json:"imageUrl,omitempty"`
-	HasImage   bool
+	RuleName string `json:"ruleName,omitempty"`
+	State    string `json:"state,omitempty"`
+	Message  string `json:"message,omitempty"`
+	RuleURL  string `json:"ruleUrl,omitempty"`
+	ImageURL string `json:"imageUrl,omitempty"`
+	HasImage bool
 }
 
 func main() {
@@ -87,10 +86,6 @@ func alertHandler() func(c echo.Context) error {
 		case len(alertPayload.ImageURL) > 0:
 			tgPayload.ImageURL = alertPayload.ImageURL
 			tgPayload.HasImage = true
-			fallthrough
-		case len(alertPayload.RuleURL) > 0:
-			tgPayload.RuleURL = alertPayload.RuleURL
-			tgPayload.HasRuleURL = true
 		}
 
 		buf := new(bytes.Buffer)
