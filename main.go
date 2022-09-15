@@ -86,6 +86,10 @@ func alertHandler() func(c echo.Context) error {
 		case len(alertPayload.ImageURL) > 0:
 			tgPayload.ImageURL = alertPayload.ImageURL
 			tgPayload.HasImage = true
+			fallthrough
+
+		case len(alertPayload.RuleURL) > 0:
+			tgPayload.RuleURL = alertPayload.RuleURL
 		}
 
 		buf := new(bytes.Buffer)
