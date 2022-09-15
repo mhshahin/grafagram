@@ -1,8 +1,10 @@
-<a href="{{.RuleURL}}">{{.RuleName}}</a>
+<b>{{.RuleName}}</b>
 
 <b>[{{.State}}]</b>
 
 {{.Message}}
+
+<u><a href="{{.RuleURL}}">Dashboard Link</a></u>
 {{if .HasImage}}
     {{.ImageURL}}
 {{end}}
